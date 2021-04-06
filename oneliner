@@ -1,0 +1,1 @@
+[ -e "/tmp/etc/dnsmasq/hosts/reload.dnsmasq" ] && service dnsmasq restart&&rm -rf /tmp/etc/dnsmasq/hosts/reload.dnsmasq
