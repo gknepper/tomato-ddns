@@ -46,5 +46,7 @@ Parameters:
 # TO-DO
 - Integrate on Advanced Tomato
 - Implement a manner to delete entries
+- Implement a server side IP/scope/netmask restriction
+- Implement a server side domain restriction 
 
 
