@@ -35,12 +35,22 @@ Parameters:
 - hostname=playstation4
 - fqdn=playstation4.home
 
+![image](https://user-images.githubusercontent.com/14863517/113658584-290c7180-9655-11eb-925e-7b5c81fabb58.png)
+
+
 2. The dns.php reads the parameters and write as a hosts file inside  /etc/dnsmasq/hosts directory. Another file called reload.dnsmasq is also created in order to trigger the reload of dnsmasq daemon and read the new entry.
-3. A schedulled job is set on tomato to run the reload: When the file reload.dnsmasq is found the dnsmasq is reloaded and erased.
+
+
+4. A schedulled job is set on tomato to run the reload: When the file reload.dnsmasq is found the dnsmasq is reloaded and erased.
 ```
 [ -e "/tmp/etc/dnsmasq/hosts/reload.dnsmasq" ] && service dnsmasq restart&&rm -rf /tmp/etc/dnsmasq/hosts/reload.dnsmasq
 ```
+![image](https://user-images.githubusercontent.com/14863517/113658493-011d0e00-9655-11eb-882e-c7bcafa12702.png)
+
 4. The new host and fqdn will be working in the host using the tomato as a DNS server. 
+
+
+
 
 
 # TO-DO
