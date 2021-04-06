@@ -1,6 +1,8 @@
 # tomato-ddns
 A awful implementation of DDNS to be used in a tomato router for dynamic DNS registration on a LAN.   
 
+Inspired by: https://yingtongli.me/blog/2017/04/18/dynamic-dns.html
+
 
 ## The problem:
 
