@@ -11,12 +11,12 @@ I tried:
 Manual insertion of DNS registries but well... breaks the automation. Same for hosts files as well. 
 
 zeroconf/avahi/bonjour:
-- works only for FQDN ( hostname.local ) due a secure limitation on avahi implementation for linux so hostnames are not solved.
+- Works only for FQDN ( hostname.local ) due a secure limitation on avahi implementation for linux so hostnames are not solved.
 - Containers don't recognise the .local unless the necessary dependencies are present within.
 
 
 Record all pool of IPs used in advance:
-- In my tomato router but I'm using rancher with a vmware node driver where the vms are dinamically provisioned and the hostnames are not predictable.
+- Set records in advance it's an viable solution when you knows the names in advance. I'm using Rancher with a vmware node driver where the vms are dinamically provisioned and the hostnames are not predictable.
 
 
 
@@ -43,7 +43,9 @@ Parameters:
 
 4. A schedulled job is set on tomato to run the reload: When the file reload.dnsmasq is found the dnsmasq is reloaded and erased.
 ```
-[ -e "/tmp/etc/dnsmasq/hosts/reload.dnsmasq" ] && service dnsmasq restart&&rm -rf /tmp/etc/dnsmasq/hosts/reload.dnsmasq
+cp /jffs/www/dhosts/* /tmp/etc/dnsmasq/hosts/
+rm -rf /tmp/etc/dnsmasq/hosts/reload.dnsmasq
+[ -e "/tmp/reload.dnsmasq" ] && service dnsmasq restart&&rm -rf /tmp/reload.dnsmasq
 ```
 ![image](https://user-images.githubusercontent.com/14863517/113658493-011d0e00-9655-11eb-882e-c7bcafa12702.png)
 
@@ -59,3 +61,6 @@ Parameters:
 - Implement a server side domain restriction 
 
 
+# KNOWN BUGS
+ - Create a check to the delete the old entry when the old name is reused. ( I'm manually handling that for now )
+ - Persistance using a external storage ( I'm managing for the moment by using JFFS - CAUTION WEARS OUT THE INTERNAL FLASH STORAGE ) 
