@@ -27,6 +27,16 @@ Tomato by default uses a setting to extend the hosts into the /etc/dnsmasq/hosts
 
 
 1. In order to create a DNS entry a simple curl can be used trigger the process: 
+
+```
+curl  "http://192.168.1.1:8080/dns.php?ip=192.168.1.224&fqdn=playstation4.home" 
+```
+Parameters:
+- ip=192.168.1.224
+- fqdn=playstation4.home
+
+or:
+
 ```
 curl  "http://192.168.1.1:8080/dns.php?ip=192.168.1.224&hostname=playstation4&fqdn=playstation4.home" 
 ```
@@ -34,6 +44,10 @@ Parameters:
 - ip=192.168.1.224
 - hostname=playstation4
 - fqdn=playstation4.home
+
+
+
+
 
 ![image](https://user-images.githubusercontent.com/14863517/113658584-290c7180-9655-11eb-925e-7b5c81fabb58.png)
 
