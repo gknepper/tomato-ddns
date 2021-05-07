@@ -43,8 +43,8 @@ Parameters:
 
 4. A schedulled job is set on tomato to run the reload: When the file reload.dnsmasq is found the dnsmasq is reloaded and erased.
 ```
+rm -rf /tmp/etc/dnsmasq/hosts/*.*
 cp /jffs/www/dhosts/* /tmp/etc/dnsmasq/hosts/
-rm -rf /tmp/etc/dnsmasq/hosts/reload.dnsmasq
 [ -e "/tmp/reload.dnsmasq" ] && service dnsmasq restart&&rm -rf /tmp/reload.dnsmasq
 ```
 ![image](https://user-images.githubusercontent.com/14863517/113658493-011d0e00-9655-11eb-882e-c7bcafa12702.png)
